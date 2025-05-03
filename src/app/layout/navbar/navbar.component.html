@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>My App</span>
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/home">Home</a>
+  @if(auth.role() == 'admin') {
+  <a mat-button routerLink="/admin">Admin</a>
+  }
+  <a routerLink="/contact-us" mat-button>Contact</a>
+  <a routerLink="/blogs" mat-button>Blogs</a>
+  @if(auth.role()) {
+  <span class="role-label">Role: {{ auth.role() }}</span>
+  }
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
