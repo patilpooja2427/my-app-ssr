@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { authGuard } from './core/auth.guard';
-import { roleGuard } from './core/role.guard';
+import { authGuard } from './core/guards/auth.guard';
+import { roleGuard } from './core/guards/role.guard';
+import { UnsavedChangesGuard } from './core/guards/unsaved-changes.guards';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -25,7 +26,8 @@ export const routes: Routes = [
             {
                 path: 'contact-us',
                 loadComponent: () => import('./pages/contact-us/contact-us.component').then(m=>m.ContactUsComponent),
-                canActivate: [roleGuard(['user', 'admin'])]
+                canActivate: [roleGuard(['user', 'admin'])],
+                canDeactivate: [UnsavedChangesGuard]
             },
         ]
     },
