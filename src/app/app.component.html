@@ -1,4 +1,7 @@
 @if(isLoggedIn()) {
     <app-navbar></app-navbar>
 } 
+
+<button mat-raised-button (click)="toggleTheme()">Toggle Theme</button>
+<!-- <app-button></app-button> -->
 <router-outlet></router-outlet>

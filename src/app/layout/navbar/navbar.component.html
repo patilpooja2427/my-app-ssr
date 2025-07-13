@@ -3,6 +3,7 @@
   <span class="spacer"></span>
 
   <a mat-button routerLink="/home">Home</a>
+  <a mat-button routerLink="/material-buttons">Buttons</a>
   @if(auth.role() == 'admin') {
   <a mat-button routerLink="/about">About</a>
   }
@@ -11,6 +12,7 @@
   @if(auth.role()) {
   <span class="role-label">Role: {{ auth.role() }}</span>
   }
+   
   <button mat-icon-button (click)="logout()">
     <mat-icon>logout</mat-icon>
   </button>

@@ -1,7 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@use './styles/dark-theme.scss' as dark;
+@use './styles/light-theme.scss' as light;
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.light-theme {
+    @include mat.all-component-themes(light.$light-theme);
+}
+
+.dark-theme {
+    @include mat.all-component-colors(dark.$dark-theme);
+}
