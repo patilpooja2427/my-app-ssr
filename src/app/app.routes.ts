@@ -29,6 +29,10 @@ export const routes: Routes = [
                 canActivate: [roleGuard(['user', 'admin'])],
                 canDeactivate: [UnsavedChangesGuard]
             },
+                        {
+                path: 'material-buttons',
+                loadComponent: () => import('./material/button/button.component').then(m=>m.ButtonComponent),
+            },
         ]
     },
     { path: '**', redirectTo: 'login' }

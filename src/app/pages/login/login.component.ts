@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { PipeImplemantationComponent } from '../pipe-implemantation/pipe-implemantation.component';
+import { CustomDirectiveComponent } from '../custom-directive/custom-directive.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,9 @@ import { Router } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    PipeImplemantationComponent,
+    CustomDirectiveComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

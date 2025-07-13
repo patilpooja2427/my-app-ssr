@@ -1,0 +1,6 @@
+<input [(ngModel)]="searchText" placeholder="Search name">
+<ul>
+    @for (user of users | search: searchText : 'name'; track user.id) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>

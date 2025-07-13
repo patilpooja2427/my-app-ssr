@@ -11,17 +11,19 @@ export class AuthService {
   http = inject(HttpClient);
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.get<any[]>('assets/users.json').pipe(
-      map(users => users.find(u => u.username === username && u.password === password)),
-      tap(user => {
-        if (user) {
-          this.isLoggedIn.set(true);
-          this.role.set(user.role);
-        }
-      }),
-      map(user => !!user)
-    );
-  } 
+    return this.http.get<any[]>('http://localhost:3000/users')
+      .pipe(
+        map(users => {
+          return users.find(u => { return u.username === username && u.password === password }) }),
+        tap(user => {
+          if (user) {
+            this.isLoggedIn.set(true);
+            this.role.set(user.role);
+          }
+        }),
+        map(user => !!user)
+      );
+  }
 
   logout() {
     this.isLoggedIn.set(false);

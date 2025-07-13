@@ -1,1 +1,12 @@
-<p>blogs works!</p>
+<!-- src/app/pages/blog/blog.component.html -->
+<div class="blog-container">
+    @for(blog of blogs; track blog.title; ; let index = $index) {
+        @defer (on viewport) {
+            <app-blog-card [blog]="blog" id="index"/>
+        }
+        @placeholder {
+            <p>loading...</p>
+        }
+    }
+</div>
+  
